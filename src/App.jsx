@@ -1,20 +1,19 @@
-import { useState } from 'react';
+import React from 'react';
 import Dashboard from './components/Dashboard';
-import Settings from './components/Settings';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import './css/index.css';
 
-function App() {
-    const [view, setView] = useState('dashboard');
-
+const App = () => {
     return (
-        <div>
-            <h1>Custom Dashboard Panel</h1>
-            <nav>
-                <button onClick={() => setView('dashboard')}>Dashboard</button>
-                <button onClick={() => setView('settings')}>Settings</button>
-            </nav>
-            {view === 'dashboard' ? <Dashboard /> : <Settings />}
+        <div className="app">
+            <Header />
+            <div className="main-content">
+                <Sidebar />
+                <Dashboard />
+            </div>
         </div>
     );
-}
+};
 
 export default App;
